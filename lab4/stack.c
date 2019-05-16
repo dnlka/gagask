@@ -15,6 +15,12 @@ void initStacka(struct stacka* tr){
     tr->top=-1;
 }
 
+// функция isEmpty
+int isEmptya(struct stacka *tr){
+    if (tr->top==-1) return 1;
+    else return 0;
+}
+
 // функция pop
 char popa(struct stacka *tr){
     if (isEmptya(tr)) return'.';
@@ -32,11 +38,6 @@ char topa(struct stacka *tr){
     return tr->arr[tr->top];
 }
 
-// функция isEmpty
-int isEmptya(struct stacka *tr){
-    if (tr->top==-1) return 1;
-    else return 0;
-}
 // функция count
 int counta(struct stacka *tr){
     return tr->top+1;
@@ -54,6 +55,12 @@ struct stackl{
 // функция initStack
 void initStackl(struct stackl* tr){
     tr->top=NULL;
+}
+
+// функция isEmpty
+int isEmptyl(struct stackl *tr){
+    if (tr->top==NULL) return 1;
+    else return 0;
 }
 
 // функция pop
@@ -80,11 +87,6 @@ char topl(struct stackl *tr){
     return tr->top->value;
 }
 
-// функция isEmpty
-int isEmptyl(struct stackl *tr){
-    if (tr->top==NULL) return 1;
-    else return 0;
-}
 // функция count
 int countl(struct stackl *tr){
     if (isEmptyl(tr)) return 0;
@@ -106,12 +108,12 @@ int main(){
 		for(i=0;i<NOM;i++) pusha('a',&arr);
 		for(i=0;i<NOM;i++) popa(&arr);
 	time=clock()-time;
-	printf("%Lg\n",(long double)time/CLOCKS_PER_SEC);
+	printf("Время для массива: %Lg\n",(long double)time/CLOCKS_PER_SEC);
 	time=clock();
 		initStackl(&tr);
 		for(i=0;i<NOM;i++) pushl('l',&tr);
 		for(i=0;i<NOM;i++) popl(&tr);
 	time=clock()-time;
-	printf("%Lg\n",(long double)time/CLOCKS_PER_SEC);
+	printf("Время для списка: %Lg\n",(long double)time/CLOCKS_PER_SEC);
 	return 0;
 }

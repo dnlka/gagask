@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <>
+
 int tre(int a){
 	return a;}
 
@@ -21,12 +21,7 @@ int callfunc(int(*cur)(int),int a){
 }
 
 int main(){
-	void** arrfunc=(void**)malloc(5*8);
-	arrfunc[0]=tre;
-	arrfunc[1]=fre;
-	arrfunc[2]=dre;
-	arrfunc[3]=gre;
-	arrfunc[4]=vre;
+	int (*arrfunc[5])(int)={tre,fre,dre,gre,vre};
 	int n,dec;
 	printf("Введите номер функции: ");
 	scanf("%d",&n);
